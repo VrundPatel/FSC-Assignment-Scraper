@@ -1,12 +1,17 @@
+import time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
-driver = webdriver.Firefox()
-driver.get("http://www.python.org")
-assert "Python" in driver.title
-elem = driver.find_element_by_name("q")
+driver = webdriver.Chrome()
+driver.get("https://portal.flsouthern.edu/ics")
+elem = driver.find_element_by_id("userName")
 elem.clear()
-elem.send_keys("pycon")
+elem.send_keys("userName")
+elem = driver.find_element_by_id("password")
+elem.clear()
+elem.send_keys("password")
+elem = driver.find_element_by_id("btnLogin")
 elem.send_keys(Keys.RETURN)
-assert "No results found." not in driver.page_source
-driver.close()
+elem = driver.find_element_by_id("myCourses")
+elem.send_keys()
+# driver.close()
