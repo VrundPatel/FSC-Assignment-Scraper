@@ -12,6 +12,7 @@ args = parser.parse_args()
 
 #Intializing the Chrome webdriver.
 driver = webdriver.Chrome()
+
 #Initializing the actions driver.
 actions = ActionChains(driver)
 
@@ -31,11 +32,20 @@ elem.send_keys(Keys.RETURN)
 # course = driver.find_element_by_id("pg1_V_rptrCourses_ctl01_rptrItems_ctl01_hlCourseCode")
 # print("found course")
 # actions.click(course)
-driver.get("https://portal.flsouthern.edu/ICS/Academics/CSC/CSC__3310/2016_DF-CSC__3310-001/")
+driver.get("https://portal.flsouthern.edu/ICS/Academics/REL/REL__1108/2016_DF-REL__1108-003/")
+driver.get("https://portal.flsouthern.edu/ICS/Academics/REL/REL__1108/2016_DF-REL__1108-003/Coursework.jnz")
 #Getting the courses for the user.
 # elem = driver.find_element_by_id("myCourses")
 # elem.send_keys()
 # driver.close()
+
+for i in range(100, 105):
+    driver.find_element_by_class_name("assignmentText")
+    id = "pg0_V__assignmentView__rptAssignments_ctl00__studentAssignBody__rptAssignments_ct" + str(i) + "__hyAssign"
+    elem = driver.find_element_by_id(id)
+    print(elem.text)
+
+
 
 #writing the assignments to a file.
 # with open("assignments.csv", "a") as csv_file:
