@@ -5,6 +5,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 # Reading credentials from the text file
 file = open("credentials.txt", 'r')
+outputFile = open("assignmnets.txt", 'w')
 username = file.readline()
 password = file.readline()
 
@@ -37,12 +38,13 @@ driver.get("https://portal.flsouthern.edu/ICS/Academics/REL/REL__1108/2016_DF-RE
 # elem.send_keys()
 # driver.close()
 
-# changes the assignmnet number in the list and prints the text of it. 
+# changes the assignmnet number in the list and prints the text of it.
 for i in range(100, 105):
     driver.find_element_by_class_name("assignmentText")
     id = "pg0_V__assignmentView__rptAssignments_ctl00__studentAssignBody__rptAssignments_ct" + str(i) + "__hyAssign"
     elem = driver.find_elements_by_id(id)
     print(elem.text)
+    outputFile.write(elem.text)
 
 #   writing the assignments to a file.
 # with open("assignments.csv", "a") as csv_file:
