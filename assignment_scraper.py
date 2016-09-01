@@ -39,9 +39,9 @@ driver.get("https://portal.flsouthern.edu/ICS/Academics/REL/REL__1108/2016_DF-RE
 # driver.close()
 
 # changes the assignmnet number in the list and prints the text of it.
-for i in range(100, 105):
+for i in range(1, 5):
     driver.find_element_by_class_name("assignmentText")
-    id = "pg0_V__assignmentView__rptAssignments_ctl00__studentAssignBody__rptAssignments_ct" + str(i) + "__hyAssign"
+    id = "pg0_V__assignmentView__rptAssignments_ctl00__studentAssignBody__rptAssignments_ctl0" + str(i) + "__hyAssign"
     elem = driver.find_elements_by_id(id)
     print(elem.text)
     outputFile.write(elem.text)
