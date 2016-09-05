@@ -28,6 +28,8 @@ elem = driver.find_element_by_id("password")
 elem.clear()
 elem.send_keys(password)
 
+eliminate_words = ["Homework due", "Exam due", "(Required)", "(Optional)"]
+
 # Looping through the list of courses.
 for i in range(1, 5):
     # finds the name for each course
@@ -61,9 +63,9 @@ for i in range(1, 5):
     driver.get("https://portal.flsouthern.edu/ICS/Students/")
 
 #   writing the assignments to a file.
-with open("assignmentsCal.csv", "a") as csv_file:
-    csv_file.write(' '.join())
-    csv_file.close()
+# with open("assignmentsCal.csv", "a") as csv_file:
+#     csv_file.write(' '.join())
+#     csv_file.close()
 
 # closes the browser
 driver.close()
