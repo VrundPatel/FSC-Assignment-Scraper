@@ -49,7 +49,11 @@ for i in range(1, 5):
     # and the due date for each assignment and add it to the array.
     for assignment in assignmentsDisplay:
         assignments.append(assignment.find_element_by_class_name("assignmentText").text)
-        assignments.append(assignment.find_element_by_class_name("assignmentDue").text)
+        text = assignment.find_element_by_class_name("assignmentDue").text
+        for word in eliminate_words:
+            if word in text:
+                text = text.replace(word, "")
+        assignments.append(text.strip())
         assignments.append("")
 
     # Prints the text to an output file if there are any assignments available for the class.
