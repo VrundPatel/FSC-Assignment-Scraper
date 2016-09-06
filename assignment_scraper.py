@@ -28,6 +28,7 @@ elem = driver.find_element_by_id("password")
 elem.clear()
 elem.send_keys(password)
 
+# Words to be eliminated from the assignmnet due text.
 eliminate_words = ["Homework due", "Exam due", "(Required)", "(Optional)"]
 
 # Looping through the list of courses.
@@ -50,6 +51,7 @@ for i in range(1, 5):
     for assignment in assignmentsDisplay:
         assignments.append(assignment.find_element_by_class_name("assignmentText").text)
         text = assignment.find_element_by_class_name("assignmentDue").text
+        # deletes the eliminated words
         for word in eliminate_words:
             if word in text:
                 text = text.replace(word, "")
