@@ -1,6 +1,7 @@
 from __future__ import print_function
 import time
 import csv
+import ics from Calendar, Event
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
@@ -16,6 +17,9 @@ driver = webdriver.Chrome()
 
 # Initializing the actions driver.
 actions = ActionChains(driver)
+
+# Create the Calendar
+c = Calendar()
 
 # Opening the url for the portal.
 driver.get("https://portal.flsouthern.edu/ICS/Students/")
@@ -51,6 +55,13 @@ for i in range(1, 5):
     for assignment in assignmentsDisplay:
         assignments.append(assignment.find_element_by_class_name("assignmentText").text)
         text = assignment.find_element_by_class_name("assignmentDue").text
+
+        # Creating an event for the calendar.
+        e.end = text
+
+        # Adding events to the Calendar
+        c.events.append(e)
+        
         # deletes the eliminated words
         for word in eliminate_words:
             if word in text:
