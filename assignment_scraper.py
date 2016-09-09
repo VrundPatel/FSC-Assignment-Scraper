@@ -29,7 +29,7 @@ elem.clear()
 elem.send_keys(password)
 
 # Words to be eliminated from the assignmnet due text.
-eliminate_words = ["Homework due", "Exam due", "(Required)", "(Optional)"]
+eliminate_words = ["Homework due", "Exam due", "Paper due", "Participation due", "(Required)", "(Optional)"]
 
 # Looping through the list of courses.
 for i in range(1, 5):
