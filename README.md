@@ -3,6 +3,8 @@ Python script that will scrape assignments and their due dates from the FSC port
 
 ## Requirements
   - Python 2.7+ installed on your machine.
+  - Selenium for python
+  - Chrome web browser
   - Create a text file `credentials.txt` with your portal credentials (username on first line and password on the next line) in the cloned repo directory.
 
 ## How to use
